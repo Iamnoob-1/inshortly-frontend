@@ -63,14 +63,7 @@ function showMessage(elementId, message, isError = false) {
   if (element) {
     element.textContent = message
     showElement(element)
-
-    // Hide after 5 seconds for errors, 3 seconds for success
-    setTimeout(
-      () => {
-        hideElement(element)
-      },
-      isError ? 5000 : 3000,
-    )
+    setTimeout(() => hideElement(element), isError ? 5000 : 3000)
   }
 }
 
@@ -104,16 +97,12 @@ function clearInput() {
 
   input.value = ""
   updateWordCount()
-
-  // Reset output
   output.innerHTML = `
-        <div class="empty-state">
-            <div class="empty-icon">📄</div>
-            <h3>Your summary will appear here</h3>
-            <p>Enter an article and click "Summarize Article" to get started</p>
-        </div>
-    `
-
+    <div class="empty-state">
+      <div class="empty-icon">📄</div>
+      <h3>Your summary will appear here</h3>
+      <p>Enter an article and click "Summarize Article" to get started</p>
+    </div>`
   hideElement(copyBtn)
   resetStats()
 }
@@ -146,15 +135,11 @@ async function copySummary() {
 
   try {
     await navigator.clipboard.writeText(output.textContent)
-
-    // Change button text temporarily
     const originalText = copyBtn.textContent
     copyBtn.textContent = "Copied!"
-
     setTimeout(() => {
       copyBtn.textContent = originalText
     }, 2000)
-
     showMessage("successMessage", "Summary copied to clipboard! 📋")
   } catch (error) {
     showMessage("errorMessage", "Failed to copy. Please select and copy manually.", true)
@@ -188,7 +173,6 @@ async function summarizeText() {
   const copyBtn = document.getElementById("copyBtn")
   const inputText = input.value.trim()
 
-  // Validation
   if (!inputText) {
     showMessage("errorMessage", "Please enter some text to summarize.", true)
     return
@@ -199,14 +183,11 @@ async function summarizeText() {
     return
   }
 
-  // Start processing
   startTime = Date.now()
   showLoading()
 
   try {
     const response = await fetch("https://inshortly-server.onrender.com/generate", {
-
-    // const response = await fetch("https://inshortly-server.onrender.com/summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -224,19 +205,14 @@ async function summarizeText() {
       throw new Error(data.error)
     }
 
-    // Display summary
     output.textContent = data.summary
     showElement(copyBtn)
-
-    // Update statistics
     updateStats(inputText, data.summary)
-
     showMessage("successMessage", "Article summarized successfully! 🎉")
   } catch (error) {
     console.error("Error:", error)
 
     let errorMessage = "An error occurred. Please try again."
-
     if (error.message.includes("fetch")) {
       errorMessage = "Cannot connect to server. Make sure the backend is online."
     } else if (error.message.includes("Server error")) {
@@ -247,21 +223,19 @@ async function summarizeText() {
 
     showMessage("errorMessage", errorMessage, true)
 
-    // Reset output
     output.innerHTML = `
-            <div class="empty-state">
-                <div class="empty-icon">📄</div>
-                <h3>Your summary will appear here</h3>
-                <p>Enter an article and click "Summarize Article" to get started</p>
-            </div>
-        `
+      <div class="empty-state">
+        <div class="empty-icon">📄</div>
+        <h3>Your summary will appear here</h3>
+        <p>Enter an article and click "Summarize Article" to get started</p>
+      </div>`
     hideElement(copyBtn)
   } finally {
     hideLoading()
   }
 }
 
-// Initialize summarizer functionality
+// Initialize summarizer
 function initializeSummarizer() {
   const input = document.getElementById("newsInput")
   const clearBtn = document.getElementById("clearBtn")
@@ -269,7 +243,6 @@ function initializeSummarizer() {
   const summarizeBtn = document.getElementById("summarizeBtn")
   const copyBtn = document.getElementById("copyBtn")
 
-  // Event listeners
   if (input) {
     input.addEventListener("input", updateWordCount)
     input.addEventListener("keydown", (e) => {
@@ -280,27 +253,15 @@ function initializeSummarizer() {
     })
   }
 
-  if (clearBtn) {
-    clearBtn.addEventListener("click", clearInput)
-  }
+  if (clearBtn) clearBtn.addEventListener("click", clearInput)
+  if (sampleBtn) sampleBtn.addEventListener("click", loadSample)
+  if (summarizeBtn) summarizeBtn.addEventListener("click", summarizeText)
+  if (copyBtn) copyBtn.addEventListener("click", copySummary)
 
-  if (sampleBtn) {
-    sampleBtn.addEventListener("click", loadSample)
-  }
-
-  if (summarizeBtn) {
-    summarizeBtn.addEventListener("click", summarizeText)
-  }
-
-  if (copyBtn) {
-    copyBtn.addEventListener("click", copySummary)
-  }
-
-  // Initialize word count
   updateWordCount()
 }
 
-// Smooth scrolling for anchor links
+// Smooth scroll for anchor links
 document.addEventListener("click", (e) => {
   if (e.target.tagName === "A" && e.target.getAttribute("href").startsWith("#")) {
     e.preventDefault()
@@ -308,9 +269,7 @@ document.addEventListener("click", (e) => {
     const targetElement = document.getElementById(targetId)
 
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: "smooth",
-      })
+      targetElement.scrollIntoView({ behavior: "smooth" })
     }
   }
 })
