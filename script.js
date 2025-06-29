@@ -204,7 +204,9 @@ async function summarizeText() {
   showLoading()
 
   try {
-    const response = await fetch("https://inshortly-server.onrender.com/summarize", {
+    const response = await fetch("https://inshortly-server.onrender.com/generate", {
+
+    // const response = await fetch("https://inshortly-server.onrender.com/summarize", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
