@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsSum - News Summarizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="FullLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span><img src="FullLogo.png" alt="" style="width: 38px; height:38px">Inshortly</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="summarize.html">Summarize</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Inshortly</h1>
+                <p>Transform long news articles into quick, easy-to-read summaries using AI technology</p>
+                <div class="hero-buttons">
+                    <a href="summarize.html" class="btn btn-primary">Start Summarizing</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="news-card">
+                    <img src="FullLogo.png" alt="" class="news-image">
+                    <!-- <div class="card-header">📊 Quick Summary</div>
+                    <div class="card-text">Get the main points in seconds</div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Choose Inshortly?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Processing</h3>
+                    <p>Get summaries in under 10 seconds with our AI technology</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Accurate Results</h3>
+                    <p>Advanced AI ensures key information is preserved</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy to Use</h3>
+                    <p>Simple interface that works on all devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure</h3>
+                    <p>Your data is processed safely and not stored</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Articles Summarized</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number" data-target="95">0</div>
+                    <div class="stat-label">Accuracy Rate (%)</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number" data-target="80">0</div>
+                    <div class="stat-label">Average Compression (%)</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number" data-target="2.5">0</div>
+                    <div class="stat-label">Seconds Average Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Inshortly</h2>
+                    <p>NewsSum helps you stay informed without spending hours reading lengthy articles. Our AI-powered summarization tool extracts the most important information from news articles, research papers, and other text content.</p>
+                    <p>Perfect for students, professionals, and anyone who wants to stay updated with current events efficiently.</p>
+                    <ul class="about-features">
+                        <li>✓ AI-powered summarization</li>
+                        <li>✓ Works with any text content</li>
+                        <li>✓ Fast and reliable</li>
+                        <li>✓ Free to use</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <!-- <span>📰</span> -->
+                         <img src="download.jpeg" alt="">
+                        <p>Smart News Processing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2 class="cta-title">Ready to Transform Your News Reading?</h2>
+                <p class="cta-description">
+                    Join thousands of users who save hours every day with intelligent news summarization
+                </p>
+                <a href="summarize.html" class="btn btn-primary btn-large">
+                    <span>Get Started Now</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Inshortly</h3>
+                    <p>Smart news summarization made simple</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="summarize.html">Summarize</a></li>
+                            <li><a href="#features">Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NewsSum. All rights reserved. Rishmeet Singh</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

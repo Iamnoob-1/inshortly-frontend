@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarize - Inshortly</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="FullLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span><img src="FullLogo.png" alt="" style="width: 32px; height: 32px;">Inshortly</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="summarize.html" class="active">Summarize</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>News Summarizer</h1>
+                <p>Paste your article below and get a quick summary</p>
+            </div>
+
+            <div class="summarizer-container">
+                <!-- Input Section -->
+                <div class="input-section">
+                    <div class="section-header">
+                        <h2>📝 Input Article</h2>
+                        <span class="word-count">Words: <span id="wordCount">0</span></span>
+                    </div>
+                    
+                    <textarea 
+                        id="newsInput" 
+                        placeholder="Paste your news article here...
+
+You can summarize:
+• News articles
+• Research papers  
+• Blog posts
+• Press releases
+• Any long text content
+
+The AI will extract the key points and main ideas."
+                    ></textarea>
+                    
+                    <div class="input-buttons">
+                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                        <button id="sampleBtn" class="btn btn-secondary">Load Sample</button>
+                    </div>
+
+                    <button id="summarizeBtn" class="btn btn-primary btn-large">
+                        <span class="btn-text">✨ Summarize Article</span>
+                        <span class="btn-loading" style="display: none;">
+                            <span class="spinner"></span>
+                            Processing...
+                        </span>
+                    </button>
+
+                    <div id="errorMessage" class="message error" style="display: none;"></div>
+                    <div id="successMessage" class="message success" style="display: none;"></div>
+                </div>
+
+                <!-- Output Section -->
+                <div class="output-section">
+                    <div class="section-header">
+                        <h2>📄 Summary</h2>
+                        <button id="copyBtn" class="btn btn-secondary btn-small" style="display: none;">Copy</button>
+                    </div>
+                    
+                    <div id="summaryOutput" class="summary-output">
+                        <div class="empty-state">
+                            <div class="empty-icon">📄</div>
+                            <h3>Your summary will appear here</h3>
+                            <p>Enter an article and click "Summarize Article" to get started</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="originalWords">0</div>
+                        <div class="stat-label">Original Words</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✨</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="summaryWords">0</div>
+                        <div class="stat-label">Summary Words</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="compressionRatio">0%</div>
+                        <div class="stat-label">Compression</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-info">
+                        <div class="stat-number" id="processingTime">0s</div>
+                        <div class="stat-label">Time Taken</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
